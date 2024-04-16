@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+    
+    <title>Shorten URL - SVR.JS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <!--[if lt IE 9]>
+<script src="/js/html5shiv.js"></script>
+<![endif]-->
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    <!--[if lte IE 7]>
+<link rel="stylesheet" href="/css/main-ie7.css">
+<![endif]-->
+    
+    
+    
+    
+
+  </head>
+
+  <body>
+    
+    
+
+
+    <header class="header">
+      <div class="header-contents">
+        <div class="mainlink">
+          <a href="https://svrjs.org/" translate="no">
+            <span class="headlogo-container">
+              <img src="/img/navbar-logo.png" class="headlogo" alt="SVR.JS logo"><span class="headname">SVR.JS</span>
+            </span>
+          </a>
+        </div>
+        <nav class="navigation">
+          <ul>
+            <li><a href="https://forum.svrjs.org">Forum</a></li>
+            <li><a href="https://git.svrjs.org">Git</a></li>
+            <li><a href="https://blog.svrjs.org">Blog</a></li>
+            <li><a href="https://svrjs.org/docs">Docs</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    
+
+<div class="content">
+
+  <main class="real-content">
+
+    <h1>Shorten URL</h1>
+<form method="post">
+      <label for="url">URL to shorten:</label>
+      <input type="url" name="url" placeholder="https://example.com" value="{{url}}">
+      <input type="submit" value="Shorten!">
+    </form>
+    {{shorturl}}
+
+  </main>
+</div>
+
+
+    
+    <footer class="footer">
+      <div class="footer-contents">
+        <div class="footer-layout">
+          <div class="footer-column">
+            <span class="footer-headline">Resources and development</span>
+            <ul class="footer-list">
+              <li><a href="https://blog.svrjs.org">Blog</a> (<a href="https://blog.svrjs.org/atom.xml">Feed</a>)</li>
+              <li><a href="https://git.svrjs.org">Git server</a></li>
+              <li><a href="https://svrjs.org/contribute">Contribute</a></li>
+              <li><a href="https://svrjs.org/changelog">Change log</a></li>
+              <li><a href="https://downloads.svrjs.org">Downloads</a></li>
+              <li><a href="https://svrjs.org/mods">Official SVR.JS mods</a></li>
+              <li><a href="https://svrjs.org/branding">Branding</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <span class="footer-headline">Support</span>
+            <ul class="footer-list">
+              <li><a href="https://svrjs.org/docs">Documentation</a></li>
+              <li><a href="https://forum.svrjs.org">Forum</a> (<a href="https://forum.svrjs.org/feed">Feed</a>)</li>
+              <li><a href="https://svrjs.org/contact">Contact us</a></li>
+              <li><a href="https://status.svrjs.org">Server uptime</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <span class="footer-headline">Social</span>
+            <ul class="footer-list">
+              <li><a rel="me" href="https://mastodon.social/@svrjs">Mastodon</a></li>
+              <li><a rel="me" href="https://twitter.com/SVR_JS">X (Twitter)</a></li>
+              <li><a rel="me" href="https://bsky.app/profile/svrjs.org">Bluesky</a></li>
+            </ul>
+            <span class="footer-headline">Policies and Security</span>
+            <ul class="footer-list">
+              <li><a href="https://svrjs.org/vulnerabilities">Security</a></li>
+              <li><a href="https://svrjs.org/toc">Terms and Conditions</a></li>
+              <li><a href="https://svrjs.org/privacy">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr/>
+        <p class="footer-copyright-text">Copyright &copy; 2023-2024 SVR.JS. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+    
+  </body>
+</html>

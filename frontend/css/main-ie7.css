@@ -1,0 +1,18 @@
+.mainlink {
+  float: left;
+}
+.headname {
+  line-height: normal;
+  display: inline;
+}
+.navigation {
+  float: right;
+  padding: 10px 0;
+}
+.footer-layout {
+  display: block;
+  text-align: center;
+}
+.footer-column {
+  display: block;
+}
