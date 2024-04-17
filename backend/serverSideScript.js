@@ -41,7 +41,7 @@ function generateUniqueShortenedURLID(db, callback) {
   var id = generateShortenedURLID();
   db.collection("urls").find({id: id}).toArray(function(err, result) {
     if (err) {
-      db.close();
+      if(db.close) db.close();
       callServerError(500, err);
       return;
     }
@@ -132,7 +132,7 @@ if (href.match(/^\/admin\/?$/)) {
        connectMongo(function(db) {
          db.collection("urls").find({url: purl}).toArray(function(err, result) {
            if (err) {
-             db.close();
+             if(db.close) db.close();
              callServerError(500, err);
              return;
            }
@@ -142,7 +142,7 @@ if (href.match(/^\/admin\/?$/)) {
              generateUniqueShortenedURLID(db, function(id) {
                db.collection("urls").insertOne({id: id, url: purl}, function(err, dbres) {
                  if (err) {
-                   db.close();
+                   if(db.close) db.close();
                    callServerError(500, err);
                    return;
                  }
@@ -160,7 +160,7 @@ if (href.match(/^\/admin\/?$/)) {
     connectMongo(function(db) {
       db.collection("urls").find({id: id}).toArray(function(err, result) {
         if (err) {
-          db.close();
+          if(db.close) db.close();
           callServerError(500, err);
           return;
         }
