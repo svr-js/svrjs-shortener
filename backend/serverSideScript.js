@@ -41,7 +41,6 @@ function generateUniqueShortenedURLID(db, callback) {
   var id = generateShortenedURLID();
   db.collection("urls").find({id: id}).toArray(function(err, result) {
     if (err) {
-      if(db.close) db.close();
       callServerError(500, err);
       return;
     }
@@ -58,16 +57,22 @@ function escapeRegExp(string) {
 }
 
 function connectMongo(callback) {
-  MongoClient.connect(mongoURL, function(err, db) {
-    if (err) {
-      callServerError(500, err);
-      return;
-    }
-    var dbo = db.db(dbname);
-    dbo.createCollection("urls", function(err, dbres) {
-      callback(dbo);
+  // customvar3 is a MongoDB database object
+  if (customvar3) {
+    callback(customvar3);
+  } else {
+    MongoClient.connect(mongoURL, function(err, db) {
+      if (err) {
+        callServerError(500, err);
+        return;
+      }
+      var dbo = db.db(dbname);
+      dbo.createCollection("urls", function(err, dbres) {
+        customvar3 = dbo;
+        callback(dbo);
+      });
     });
-  });
+  }
 }
 
 function formatTemplate(templateName, templateData, callback) {
@@ -132,7 +137,6 @@ if (href.match(/^\/admin\/?$/)) {
        connectMongo(function(db) {
          db.collection("urls").find({url: purl}).toArray(function(err, result) {
            if (err) {
-             if(db.close) db.close();
              callServerError(500, err);
              return;
            }
@@ -142,7 +146,6 @@ if (href.match(/^\/admin\/?$/)) {
              generateUniqueShortenedURLID(db, function(id) {
                db.collection("urls").insertOne({id: id, url: purl}, function(err, dbres) {
                  if (err) {
-                   if(db.close) db.close();
                    callServerError(500, err);
                    return;
                  }
@@ -160,7 +163,6 @@ if (href.match(/^\/admin\/?$/)) {
     connectMongo(function(db) {
       db.collection("urls").find({id: id}).toArray(function(err, result) {
         if (err) {
-          if(db.close) db.close();
           callServerError(500, err);
           return;
         }
