@@ -1,5 +1,6 @@
 {
   "mongoURL": "mongodb://localhost/shortenerdb",
   "database": "shortenerdb",
-  "defaultURL": "https://svrjs.org"
+  "defaultURL": "https://svrjs.org",
+  "enableRefererSecurity": true
 }

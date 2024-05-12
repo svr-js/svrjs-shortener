@@ -23,6 +23,7 @@ if(customvar2) {
 var mongoURL = customvar1.mongoURL;
 var dbname = customvar1.dbname;
 var defaultURL = customvar1.defaultURL;
+var hasRefererSecurity = (customvar1.enableRefererSecurity === undefined) ? true : customvar1.enableRefererSecurity;
 
 function antiXSS(string) {
     return string.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");
@@ -100,10 +101,10 @@ if (href.match(/^\/admin\/?$/)) {
      return;
    }
    var baseURL = (req.socket.encrypted ? "https" : "http") + "://" + (req.headers.host ? req.headers.host : req.socket.localAddress);
-   if(req.headers.referer && (req.headers.referer + "/").substring(0,baseURL.length + 1) != (baseURL + "/")) {
+   if(hasRefererSecurity && (req.headers.referer + "/").substring(0,baseURL.length + 1) != (baseURL + "/")) {
      formatTemplate("index.html", {
        "url": "",
-       "shorturl": "<b>CSRF detected</b>"
+       "shorturl": "<b>Invalid referrer (CSRF?)</b>"
      }, function(data) {
        res.writeHead(400, {"Content-Type": "text/html; charset=utf-8"});
        res.end(data);
