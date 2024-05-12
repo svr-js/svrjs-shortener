@@ -99,6 +99,17 @@ if (href.match(/^\/admin\/?$/)) {
     });
      return;
    }
+   var baseURL = (req.socket.encrypted ? "https" : "http") + "://" + (req.headers.host ? req.headers.host : req.socket.localAddress);
+   if(req.headers.referer && (req.headers.referer + "/").substring(0,baseURL.length + 1) != (baseURL + "/")) {
+     formatTemplate("index.html", {
+       "url": "",
+       "shorturl": "<b>CSRF detected</b>"
+     }, function(data) {
+       res.writeHead(400, {"Content-Type": "text/html; charset=utf-8"});
+       res.end(data);
+     });
+     return;
+   }
    var postdata = "";
    req.on("data", function(data) {postdata += data.toString();});
    req.on("end", function() {
@@ -123,7 +134,7 @@ if (href.match(/^\/admin\/?$/)) {
        return;
      } else {
        function finalizeResponse(uri, id) {
-         var shorturl = (req.socket.encrypted ? "https" : "http") + "://" + (req.headers.host ? req.headers.host : req.socket.localAddress) + "/" + id;
+         var shorturl = baseURL + "/" + id;
          formatTemplate("index.html", {
            "url": antiXSS(uri),
            "shorturl": "<p>Shortened URL: <b><a href=\"" + antiXSS(shorturl) + "\" target=\"_blank\">" + antiXSS(shorturl) + "</a></b>"
