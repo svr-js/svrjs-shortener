@@ -257,6 +257,29 @@ a:hover {
   list-style-type: none;
 }
 
+.footer-social {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0.5em 0;
+}
+
+.footer-social li {
+  display: inline;
+}
+
+.footer-social a:hover img {
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+}
+
+.footer-social img {
+  width: 40px;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
 img {
   border-style: none;
 }

@@ -97,11 +97,11 @@
           </div>
           <div class="footer-column">
             <span class="footer-headline">Social</span>
-            <ul class="footer-list">
-              <li><a rel="me" href="https://mastodon.social/@svrjs">Mastodon</a></li>
-              <li><a rel="me" href="https://x.com/SVR_JS">X (Twitter)</a></li>
-              <li><a rel="me" href="https://bsky.app/profile/svrjs.org">Bluesky</a></li>
-              <li><a rel="me" href="https://odysee.com/@SVRJS">Odysee</a></li>
+            <ul class="footer-social">
+              <li><a rel="me" href="https://x.com/SVR_JS" title="X (Twitter)"><img src="/img/social/x.png" alt="X (Twitter)"></a></li>
+              <li><a rel="me" href="https://mastodon.social/@svrjs" title="Mastodon"><img src="/img/social/mastodon.png" alt="Mastodon"></a></li>
+              <li><a rel="me" href="https://bsky.app/profile/svrjs.org" title="Bluesky"><img src="/img/social/bluesky.png" alt="Bluesky"></a></li>
+              <li><a rel="me" href="https://odysee.com/@SVRJS" title="Odysee"><img src="/img/social/odysee.png" alt="Odysee"></a></li>
             </ul>
             <span class="footer-headline">Policies and Security</span>
             <ul class="footer-list">
