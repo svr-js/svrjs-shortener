@@ -35,7 +35,7 @@
         <div class="mainlink">
           <a href="https://svrjs.org/" translate="no">
             <span class="headlogo-container">
-              <img src="/img/navbar-logo.png" class="headlogo" alt="SVR.JS logo"><span class="headname">SVR.JS</span>
+              <img src="/img/navbar-logo.png" class="headlogo" alt="SVR.JS logo"><!--<span class="headname">SVR.JS</span>-->
             </span>
           </a>
         </div>
